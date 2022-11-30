@@ -1,11 +1,15 @@
 #include<random>
 #include<iostream>
 
-void create_random_array(int array[], int size)
+template <typename T>
+void create_random_array(T array[], int size)
 {
+
     for(int i = 0; i < size; ++i)
     {
-        array[i] = rand() % size;
+        // Adding an extra value so we get decimal values
+        // when using T = double/float
+        array[i] = (rand() % size) + ((rand() % 100) / T(20));
     }
 }
 
@@ -17,7 +21,8 @@ void swap( T *a, T *b)
     *b = temp;
 }
 
-void bubble_sort(int array[], int size)
+template <typename T>
+void bubble_sort(T array[], int size)
 {
     bool swapped = true;
     while(swapped == true)
@@ -61,5 +66,7 @@ int main()
     {
         std::cout << "Sorted Array at " << i << " has a value of " << arr[i] << std::endl;
     }
+
+
 
 }
