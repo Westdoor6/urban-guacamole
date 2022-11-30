@@ -1,0 +1,30 @@
+#include <math.h>
+#include <stdio.h>
+#include <string.h>
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+
+  int in1 = 0;
+
+  while(in1 = 0)
+    {
+      string test_in;
+      cout << "Please enter the first number of the equation" << endl;
+      cin >> test_in;
+
+      if(isdigit(test_in))
+	{
+	  in1 = atoi(test_in.cstring());
+	}
+      else
+	{
+	  cout << "Try again, that's not a number!" << endl;
+	}
+    }
+  
+}
