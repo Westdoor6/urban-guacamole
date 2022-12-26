@@ -1,0 +1,122 @@
+Class,No.,First Name,Last Name,Vehicle Year/Make/Model,Member #,Segment Name
+AM,177,Jeremy,Boyer,LRC LRC,498699,Day 1
+AS,39,Donald,Reiman,2017 Chevrolet Z51,666375,Day 2
+ASP,9,Nikola,Cop,1999 Porsche 911,533117,Day 1
+BS,71,Tom,Bruck,2021 BMW M2C,540734,Day 1
+BS,71,Tom,Bruck,2021 BMW M2C,540734,Day 2
+BS,64,Randall,Smith,2018 Ford Focus RS,609665,Day 1
+BSP,13,Michelle,Degrange,2004 Mazda MX5 Mazdaspeed,482840,Day 2
+CAMCL,7,Robert,Terhune,2021 Ford Mustang,632186,Day 1
+CAMS,27,Josh,Cummings,2017 Chevrolet Corvette GS,552011,Day 2
+CAMS,27,Josh,Cummings,2017 Chevrolet Corvette GS,552011,Day 1
+CAMT,117,Tyler,Brand,1987 Ford Ranger,619878,Day 1
+CAMT,27,Vince,Dinh,2002 Chevrolet Camaro SS,533192,Day 2
+CAMT,27,Vince,Dinh,2002 Chevrolet Camaro SS,533192,Day 1
+CAMT,17,Jim,O'Day,1987 Ford Ranger,417263,Day 1
+CAMT,64,Curtis,Tyler,1964 Chevrolet,535003,Day 1
+CAMT,64,Curtis,Tyler,1964 Chevrolet,535003,Day 2
+CAMT,77,Brian,Underwood,1976 Chevrolet Camaro,637103,Day 1
+CS,55,Earl,Esson,2005 Honda S2000,398957,Day 1
+DP,11,Curt,Sullivan,1997 Mazda Miata,607588,Day 1
+DP,111,Tristin,Sullivan,1997 Mazda MX5,607661,Day 1
+DS,121,Jacob,Burnham,2022 Toyota GR86,666213,Day 2
+DS,21,Chris,Knebel,2022 Toyota GR86,625588,Day 2
+DS,92,Brian,McGaha,2014 Mini Countryman,329917,Day 2
+DS,92,Brian,McGaha,2014 Mini Countryman,329917,Day 1
+DS,105,Alexander,Pineiro,2022 Subaru BRZ,,Day 2
+DS,6,Bob,Yaklich,2006 Subaru Impreza WRX,,Day 2
+DS,4,Kaleb,Yaklich,2006 Subaru Impreza WRX,,Day 2
+EM,72,Ron,Reese,1980 Mazda RX7,110197_1,Day 1
+EP,13,Roberto,Olivarez,1978 Datsun 280z,653911,Day 1
+ES,52,Earl,Esson,1994 Mazda Miata,398957,Day 2
+ES,73,Amber Dawn,Jorgensen,2001 Toyota MR2 Spyder,614630,Day 1
+ES,73,Amber Dawn,Jorgensen,2001 Toyota MR2 Spyder,614630,Day 2
+ES,71,Mark,Kettering,1999 Mazda Miata,517793,Day 1
+ES,71,Mark,Kettering,1999 Mazda Miata,517793,Day 2
+ES,171,Laurie,Matthews,1999 Mazda Miata,517792,Day 1
+ES,171,Laurie,Matthews,1999 Mazda Miata,517792,Day 2
+ES,22,Mark,Peterson,1989 Toyota MR2,551877,Day 2
+ES,22,Mark,Peterson,1989 Toyota MR2,551877,Day 1
+ES,2,Chase,Sullivan,1994 Mazda Miata,621402,Day 2
+ES,2,Chase,Sullivan,1994 Mazda Miata,621402,Day 1
+ESP,38,Melissa,Nelson,2015 Lexus IS 350,667786 MN,Day 1
+ESP,38,Melissa,Nelson,2015 Lexus IS 350,667786 MN,Day 2
+ESP,37,Brandon,Shaw,2010 Infiniti G37,543536,Day 2
+ESP,73,Ronette,Shaw,2010 Infiniti G37,543537,Day 2
+FS,30,Chad,Stewart,2021 Ford Mustang GT,516949,Day 1
+GS,11,Larry,Beck,2017 Chevrolet Volt Premier,,Day 1
+GS,18,Chandler,Horning,2018 Volkswagen GTI,517657,Day 1
+GS,97,Jeffrey,McVey,2013 Ford Focus ST,397586,Day 2
+GS,97,Jeffrey,McVey,2013 Ford Focus ST,397586,Day 1
+HS,1,Troy,Jensen,2003 Dodge neon,320296_0,Day 1
+KM,5,Peter,Shaw,2003 Swiss Hutless Formula C,367342,Day 2
+KM,5,Peter,Shaw,2003 Swiss Hutless Formula C,367342,Day 1
+N,132,Brennan,Busacker,1997 Mazda Miata mx-5,,Day 1
+N,614,Tim,Davis,2013 BMW 135i,,Day 2
+N,555,Sean,Drake,2002 Subaru Wrx wagon,,Day 2
+N,74,Antonio,Gallegos Buitron,2019 Toyota 86,,Day 1
+N,317,Matthew,Gibson,2017 Ford Fiesta ST,,Day 2
+N,142,Gordon,Holland,2004 Mazda MAZDASPEED Miata,673052,Day 1
+N,142,Gordon,Holland,2004 Mazda MAZDASPEED Miata,673052,Day 2
+N,111,Parker,Holland,2008 Mazda MX-5 Miata,673275,Day 1
+N,111,Parker,Holland,2008 Mazda MX-5 Miata,673275,Day 2
+N,420,Matthew,Hughes,2010 Mini Cooper S,,Day 2
+N,39,Elizabeth,Langley,2017 Chevrolet Z51,666376,Day 2
+N,177,Erik,Levinson,2022 Toyota GR86,,Day 1
+N,177,Erik,Levinson,2022 Toyota GR86,,Day 2
+N,313,Joseph,Mortensen,2015 Infiniti Q50S,,Day 1
+N,22,Alex,Pierce,2013 Scion FR-S,,Day 1
+N,22,Alex,Pierce,2013 Scion FR-S,,Day 2
+N,999,Jeremy,Simmons,2006 Mazda Mx-5 miata,682005,Day 1
+N,999,Jeremy,Simmons,2006 Mazda Mx-5 miata,682005,Day 2
+N,104,Steve,Williams,1973 Porsche 914,,Day 1
+OPEN,885,Jesse,Allensworth,2011 Ford Mustang GT,533280,Day 2
+OPEN,113,Scott,Kincaid,1991 Honda CRX,489377,Day 2
+OPEN,113,Scott,Kincaid,1991 Honda CRX,489377,Day 1
+SM,25,Nick,Johnston,1999 Subaru Impreza 2.5RS,545631,Day 1
+SM,25,Nick,Johnston,1999 Subaru Impreza 2.5RS,545631,Day 2
+SM,71,Ken,Pierson,2005 Mitsubishi Evo,501628,Day 1
+SMF,5,Ryan,Degrange,1998 Honda Civic,677661,Day 2
+SMF,76,Jeff,Hill,1978 Volkswagen Rabbit,549460,Day 2
+SMF,76,Jeff,Hill,1978 Volkswagen Rabbit,549460,Day 1
+SMF,25,Erik,Ream,1992 Volkswagen gti,655996,Day 2
+SMF,25,Erik,Ream,1992 Volkswagen gti,655996,Day 1
+SMF,15,Andoni,Rementeria,1998 Honda Civic,677662,Day 2
+SS,21,Waylon,Goebel,2021 Porsche 718 GT4,512730,Day 2
+SS,21,Waylon,Goebel,2021 Porsche 718 GT4,512730,Day 1
+SS,181,Tom,Larson,2019 Chevrolet C7 Grand Sport,457152,Day 2
+SS,181,Tom,Larson,2019 Chevrolet C7 Grand Sport,457152,Day 1
+SSM,77,Sachs,Alexandre,2017 Chevrolet Corvette C7 GrandSport,634104,Day 1
+SSM,77,Sachs,Alexandre,2017 Chevrolet Corvette C7 GrandSport,634104,Day 2
+SSM,22,Aaron,Elfering,1990 Mazda Miata,519395,Day 1
+SSM,122,Dakota,Elfering,1990 Mazda Miata,645613,Day 1
+SSM,44,Andrea,Milnes,1988 Toyota MR2,483738,Day 1
+SST,22,Sonny,Wiersema,2017 Porsche Cayman,465185,Day 1
+STR,176,Jacob,Israel,2020 Mazda MX-5,677408,Day 2
+STR,176,Jacob,Israel,2020 Mazda MX-5,677408,Day 1
+STR,427,Kyle,Nadin,2000 Mazda Miata,678886,Day 1
+STR,427,Kyle,Nadin,2000 Mazda Miata,678886,Day 2
+STS,61,Selso,Gallegos,1994 Honda Del Sol SI,676585,Day 1
+STS,12,John,Minton,1999 Mazda Miata,668257,Day 2
+STS,21,Noah,Minton,1999 Mazda Miata,668257,Day 2
+STS,88,Andrew,Redding,1988 Honda CRX SI,466507,Day 2
+STS,88,Andrew,Redding,1988 Honda CRX SI,466507,Day 1
+STS,994,Kile,Thompson,1991 Mazda Miata,682007,Day 1
+STU,66,Jeremy,Olson,2021 Hyundai Veloster N,552781,Day 2
+STX,64,Matthew,Bell,2006 Mini Cooper S,673048,Day 1
+STX,64,Matthew,Bell,2006 Mini Cooper S,673048,Day 2
+STX,96,Jeremy,Braun,2017 Subaru BRZ series.yellow,517384,Day 2
+STX,96,Jeremy,Braun,2017 Subaru BRZ series.yellow,517384,Day 1
+STX,69,Kari,Braun,2017 Subaru BRZ series.yellow,653950,Day 1
+STX,69,Kari,Braun,2017 Subaru BRZ series.yellow,653950,Day 2
+STX,153,Trinity,Conner,2006 Mini Cooper S,625097,Day 1
+STX,16,Andrea,Higgins,2017 Toyota 86,,Day 2
+STX,16,Andrea,Higgins,2017 Toyota 86,,Day 1
+STX,24,Zane,Lee,2013 Scion FR-S,683546,Day 2
+STX,24,Zane,Lee,2013 Scion FR-S,683546,Day 1
+STX,6,Brian,Reilly,2017 Toyota 86,500376,Day 2
+STX,6,Brian,Reilly,2017 Toyota 86,500376,Day 1
+STX,81,Casey,Tillman,2013 Scion FR-S,,Day 2
+STX,95,Jordan,Yano,2013 Subaru BRZ,673044,Day 1
+XP,7,Taylor,Howell,2008 BMW 335i,,Day 2
+XSA,65,Dallas,Croft,2002 Subaru Impreza TS,510650,Day 2

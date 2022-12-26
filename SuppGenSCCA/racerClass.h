@@ -16,14 +16,14 @@ enum class WorkPosition
     corner
 };
 
-class Entry
+class Racer
 {
     public:
         void printEntryInfo();
         WorkPosition getJob();
         void setJob(WorkPosition);
-        Entry();
-        Entry(int SccaMemberNo, std::string DriverName, std::string CarClass, int CarNumber, std::string CarMakeModel, WorkPosition job);
+        Racer();
+        Racer(int SccaMemberNo, std::string DriverName, std::string CarClass, int CarNumber, std::string CarMakeModel, WorkPosition job);
     private:
         int sccaMemberNumber;
         std::string driverName;

@@ -34,7 +34,7 @@ std::ostream& operator<<(std::ostream& out, const WorkPosition pos){
     return out << s;
 }
 
-Entry::Entry()
+Racer::Racer()
 {
     sccaMemberNumber = 606060;
     driverName = "Baby Driver";
@@ -44,7 +44,7 @@ Entry::Entry()
     job = WorkPosition::corner;
 }
 
-Entry::Entry(int SccaMemberNo, std::string DriverName, std::string CarClass, int CarNumber, std::string CarMakeModel, WorkPosition Job = WorkPosition::corner)
+Racer::Racer(int SccaMemberNo, std::string DriverName, std::string CarClass, int CarNumber, std::string CarMakeModel, WorkPosition Job = WorkPosition::corner)
 {
     sccaMemberNumber = SccaMemberNo;
     driverName = DriverName;
@@ -53,22 +53,22 @@ Entry::Entry(int SccaMemberNo, std::string DriverName, std::string CarClass, int
     carMakeModel = CarMakeModel;
 }
 
-void Entry::printEntryInfo()
+void Racer::printEntryInfo()
 {
-    std::cout << "SCCA Member Number " << sccaMemberNumber << std::endl;
-    std::cout << "Driver Name " << driverName << std::endl;
-    std::cout << "Worker Position " << job << std::endl;
-    std::cout << "Car Class " << carClass << std::endl;
-    std::cout << "Car Number " << carNumber << std::endl;
-    std::cout << "Car Make/Model " << carMakeModel << std::endl;
+    std::cout << "SCCA Member Number --- " << sccaMemberNumber << std::endl;
+    std::cout << "Driver Name --- " << driverName << std::endl;
+    std::cout << "Worker Position --- " << job << std::endl;
+    std::cout << "Car Class --- " << carClass << std::endl;
+    std::cout << "Car Number --- " << carNumber << std::endl;
+    std::cout << "Car Make/Model --- " << carMakeModel << std::endl;
 }
 
-WorkPosition Entry::getJob()
+WorkPosition Racer::getJob()
 {
     return job;
 }
 
-void Entry::setJob(WorkPosition newJob)
+void Racer::setJob(WorkPosition newJob)
 {
     job = newJob;
 }
