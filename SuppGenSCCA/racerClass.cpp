@@ -1,6 +1,6 @@
 #include "racerClass.h"
 
-std::ostream& operator<<(std::ostream& out, const WorkPosition pos){
+std::ostream& operator<<(std::ostream& out,const WorkPosition pos){
     const char* s = 0;
 
    switch(pos)
@@ -51,6 +51,7 @@ Racer::Racer(int SccaMemberNo, std::string DriverName, std::string CarClass, int
     carClass = CarClass;
     carNumber = CarNumber;
     carMakeModel = CarMakeModel;
+    job = Job;
 }
 
 void Racer::printEntryInfo()

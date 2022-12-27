@@ -31,8 +31,8 @@ int main()
     std::cout << "Welcome to the AutoCross Supplemental Generator." << std::endl;
     std::cout << "Please enter the name of the file that contains the entries for this event" << std::endl;
     
-    std::string filename;
-    std::cin >> filename;
+    //std::string filename;
+    //std::cin >> filename;
     
     //
     // Temporarily hardcode the filename to make testing easier/quicker
@@ -43,7 +43,7 @@ int main()
     {
         std::cout << "File could not be opened. Please enter a valid filename." << std::endl;
         //std::cin >> filename;
-        infile.open(filename);
+        //infile.open(filename);
     }
 
     std::vector<Racer> entries;
@@ -64,12 +64,24 @@ int main()
         Racer r(stoi(deets[5]),deets[2] + " " + deets[3], deets[0], std::stoi(deets[1]), deets[4],WorkPosition::corner);
         entries.push_back(r);
     }
-
+    infile.close();
+    
     for(int i = 0 ; i < 5 ; ++i)
     {
         entries.at(i).printEntryInfo();
     }
 
-    infile.close();
+    // Variables we need from the user
+    // Number of Run Groups
+    // Names for core work positions
+    std::cout << "Please enter the desired number of run groups" << std::endl;
+    //int numRunGroups;
+    //std::cin >> numRunGroups;
+    
+    std::cout << "Please enter the name of the person who will be the Safety  Steward"  << std::endl;
+    std::string safetyName;
+    std::cin >> safetyName;
+    
+
     return 0;
 }
