@@ -1,6 +1,6 @@
 #include "racerClass.h"
 
-std::ostream& operator<<(std::ostream& out,const WorkPosition pos){
+std::ostream& operator << (std::ostream& out,const WorkPosition pos){
     const char* s = 0;
 
    switch(pos)
@@ -25,6 +25,12 @@ std::ostream& operator<<(std::ostream& out,const WorkPosition pos){
             break;
         case(WorkPosition::startLine):
             s = "Starting Line";
+            break;
+        case(WorkPosition::workerChief):
+            s = "Worker Chief";
+            break;
+        case(WorkPosition::gate):
+            s = "Gate/Perimiter";
             break;
         case(WorkPosition::timing):
             s = "Timing Operator";
@@ -54,7 +60,7 @@ Racer::Racer(int SccaMemberNo, std::string DriverName, std::string CarClass, int
     job = Job;
 }
 
-void Racer::printEntryInfo()
+void Racer::print_entry_info()
 {
     std::cout << "SCCA Member Number --- " << sccaMemberNumber << std::endl;
     std::cout << "Driver Name --- " << driverName << std::endl;
@@ -64,12 +70,26 @@ void Racer::printEntryInfo()
     std::cout << "Car Make/Model --- " << carMakeModel << std::endl;
 }
 
-WorkPosition Racer::getJob()
+WorkPosition Racer::get_job()
 {
     return job;
 }
-
-void Racer::setJob(WorkPosition newJob)
+void Racer::set_job(WorkPosition newJob)
 {
     job = newJob;
+}
+
+std::string Racer::get_name()
+{
+    return driverName;
+}
+
+std::string Racer::get_name() const
+{
+    return driverName;
+}
+
+std::string Racer::get_class()
+{
+    return carClass;   
 }

@@ -13,15 +13,22 @@ enum class WorkPosition
     grid,
     noviceCoach,
     startLine,
+    workerChief,
+    gate,
     corner
 };
+
+std::ostream& operator << (std::ostream& out,const WorkPosition pos);
 
 class Racer
 {
     public:
-        void printEntryInfo();
-        WorkPosition getJob();
-        void setJob(WorkPosition);
+        void print_entry_info();
+        WorkPosition get_job();
+        void set_job(WorkPosition);
+        std::string get_name();
+        std::string get_name() const;
+        std::string get_class();
         Racer();
         Racer(int SccaMemberNo, std::string DriverName, std::string CarClass, int CarNumber, std::string CarMakeModel, WorkPosition job);
     private:

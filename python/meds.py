@@ -3,6 +3,7 @@ import sqlite3
 ##          Name        mg Acet 
 HYDRO = '''INSERT INTO pill_history (name, acet_mg) VALUES ('Hydrocodone', 325);'''
 TYLEN = '''INSERT INTO pill_history (name, acet_mg) VALUES ("Tylenol", 500);'''
+PASTDAY  = '''SELECT acet_mg FROM pill_history WHERE log_time > datetime('now','-1 day')'''
 
 def db_setup():
     ## Connect to our database of medication entries
@@ -30,7 +31,7 @@ def db_setup():
             print("sqlite connection is closed")
 
 
-def log(table):
+def log_all(table):
     header = "Index     Medication      Acetaminophen       Time Taken"
     print(header)
 
@@ -39,6 +40,13 @@ def log(table):
         print(f'{index}\t {name}\t {mg}\t\t {created_at}')
 
     print()
+
+def log_acet(table):
+    total = 0
+    for mg in table:
+        total += int(mg[0]) #MG has 1 value but is returned as a tuple from the database
+
+    print("In the past 24 hours " + str(total) + " mg of acetaminophen have been logged")
 
 db_setup()
 con = sqlite3.connect("meds.db")
@@ -61,9 +69,10 @@ while int(menu_choice) != 5:
         print()
     elif m == 3:
         res = dbc.execute("SELECT * FROM pill_history")
-        log(res.fetchall())
+        log_all(res.fetchall())
     elif m == 4:
-        print()
+        res = dbc.execute(PASTDAY)
+        log_acet(res.fetchall())
     elif m == 5:
         dbc.close()
         con.close()
