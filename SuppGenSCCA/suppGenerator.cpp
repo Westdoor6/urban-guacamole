@@ -49,22 +49,34 @@ vector<string> split(string line, char delim = ',')
     return ret;
 }
 
-// Once a Racer is assigned a WorkPosition, move their racing class into that vector
+// Once all WorkPositions are assigned for a given run group, move their racing class into that vector
 // in runGroups. This makes sure that we don't assign people in the same racing class
 // WorkPositions in conflicting run groups
-void add_class_to_run_group(Racer worker, vector<Racer> &entries, vector<Racer> &runGroup)
+void add_classes_to_run_group(vector<Racer> &entries, vector<Racer> &runGroup)
 {
-    string carClass = worker.get_class();
+    // Build a "classes" vector based on drivers who have a non "corner" job
+    std::vector<string> classes;
+    for (auto r : entries)
+    {
+        if (r.get_job() != WorkPosition::corner && !is_core_worker(r))
+        {
+            classes.push_back(r.get_class());
+        }
+    }
 
+    // For all the classes we've pulled above, move all drivers in that class into the
+    // run group
     for (auto it = entries.begin(); it != entries.end(); /*In loop*/)
     {
-        if (it->get_class() == carClass)
+        if (std::find(classes.begin(), classes.end(), it->get_class()) == classes.end())
+        {
+            it++;
+        }
+        else
         {
             runGroup.push_back(*it);
             entries.erase(it);
         }
-        else
-            it++;
     }
 }
 
@@ -81,24 +93,33 @@ Racer search_and_set_pos(WorkPosition pos, vector<Racer> &entries)
 
         for (vector<Racer>::iterator r = entries.begin(); r != entries.end(); ++r)
         {
-            if (r->get_name() == name && r->get_job() == WorkPosition::corner)
+            bool nameFound = (r->get_name() == name);
+
+            if (nameFound && r->get_class() == "N")
+            {
+                cout << "Driver is a novice, let's try someone else" << endl;
+                break;
+            }
+            if (nameFound && r->get_job() == WorkPosition::corner)
             {
                 r->set_job(pos);
                 return *r;
             }
-            else if (r->get_name() == name && r->get_job() != WorkPosition::corner)
+            else if (nameFound && r->get_job() != WorkPosition::corner)
             {
                 cout << "That driver already has a job, select someone else please." << endl;
                 break;
             }
+            if (r == entries.end() - 1)
+                cout << "Driver could not be found!" << endl;
         }
-        cout << "Driver could not be found!" << endl;
     }
 }
 
 Racer search_and_set_pos(WorkPosition pos, vector<Racer> &entries, int runGroupNum)
 {
-    cout << "For Run Group Number " << runGroupNum + 1 << endl;
+    cout << endl
+         << "For Run Group Number " << runGroupNum + 1 << endl;
     cout << "--------------------------" << endl;
     return search_and_set_pos(pos, entries);
 }
@@ -113,8 +134,72 @@ void print_run_groups(vector<Racer> groupEntries)
             classes.push_back(r.get_class());
         }
     }
+
     for (string c : classes)
-        cout << c << endl;
+    {
+        cout << "\t   ---   " << c << "   ---" << endl;
+        for (auto r : groupEntries)
+        {
+            if (r.get_class() == c)
+                cout << "\t   " << r.get_name() << endl;
+        }
+    }
+}
+
+int find_smallest_group_index(vector<vector<Racer>> runGroups)
+{
+    int smallestGroupIndex = 0;
+    int count = runGroups.at(0).size();
+
+    for (int group = 0; group < runGroups.size(); ++group)
+    {
+        if (runGroups.at(group).size() < count)
+        {
+            count = runGroups.at(group).size();
+            smallestGroupIndex = group;
+        }
+    }
+
+    return smallestGroupIndex;
+}
+
+void distribute_remaining_classes(vector<Racer> &remainingRacers, vector<vector<Racer>> &runGroups)
+{
+    cout << "Would you like to divide the novices evenly between the run groups (y/n)?" << endl;
+    string even;
+    cin >> even;
+
+    bool divide = true;
+    if (even == "n" || even == "N")
+    {
+        divide = false;
+    }
+
+    while (remainingRacers.size() != 0)
+    {
+        int smallestGroup = find_smallest_group_index(runGroups);
+
+        string cl = remainingRacers.front().get_class();
+        for (vector<Racer>::iterator racer = remainingRacers.begin();
+             racer != remainingRacers.end();
+             /*In loop*/)
+        {
+            racer->print_entry_info();
+            if (racer->get_class() == "N" && divide == true && cl == "N")
+            {
+                runGroups.at(smallestGroup).push_back(*racer);
+                smallestGroup = (smallestGroup + 1) % runGroups.size();
+                remainingRacers.erase(racer);
+            }
+            else if (racer->get_class() == cl)
+            {
+                runGroups.at(smallestGroup).push_back(*racer);
+                remainingRacers.erase(racer);
+            }
+            else if (racer != remainingRacers.end())
+                ++racer;
+        }
+    }
 }
 
 /*Main Driver for the generator
@@ -146,11 +231,11 @@ int main()
 
     // Rip Racer info from the provided file
     // This is designed for a CSV
-    vector<vector<Racer>> entries;
+    vector<vector<Racer>> entriesPerDay;
     int numberOfDays = 2;
     for (int i = 0; i < numberOfDays; ++i)
     {
-        entries.push_back(std::vector<Racer>());
+        entriesPerDay.push_back(std::vector<Racer>());
     }
     string line;
 
@@ -170,20 +255,23 @@ int main()
         Racer r(stoi(deets[5]), deets[2] + " " + deets[3], deets[0], stoi(deets[1]), deets[4], WorkPosition::corner);
 
         if (deets[6] == "Day 1")
-            entries[DAY1].push_back(r);
+            entriesPerDay[DAY1].push_back(r);
         else if (deets[6] == "Day 2")
-            entries[DAY2].push_back(r);
+            entriesPerDay[DAY2].push_back(r);
     }
     infile.close();
 
     // Debug output
-    cout << "Day 1 Participant Count " << entries.at(DAY1).size() << endl;
-    cout << "Day 2 Participant Count " << entries.at(DAY2).size() << endl;
+    cout << "Day 1 Participant Count " << entriesPerDay.at(DAY1).size() << endl;
+    cout << "Day 2 Participant Count " << entriesPerDay.at(DAY2).size() << endl;
 
-    vector<WorkPosition> core_pos_for_event = {WorkPosition::courseDesign, WorkPosition::noviceCoach};
-    vector<WorkPosition> core_pos_each_group = {WorkPosition::safetySteward,
-                                                // WorkPosition::workerChief,
-                                                // WorkPosition::timing,
+    vector<WorkPosition> core_pos_for_event = {
+        /*  WorkPosition::courseDesign,
+            WorkPosition::noviceCoach,
+            WorkPosition::safetySteward*/
+    };
+    vector<WorkPosition> core_pos_each_group = {// WorkPosition::workerChief,
+                                                WorkPosition::timing,
                                                 // WorkPosition::checkIn,
                                                 // WorkPosition::grid,
                                                 // WorkPosition::startLine,
@@ -202,24 +290,33 @@ int main()
         vector<vector<Racer>> runGroups;
         runGroups.resize(numRunGroups);
 
-        for (auto r : entries.at(day))
+        for (auto racer : entriesPerDay.at(day))
         {
-            cout << r.get_name() << endl;
+            cout << racer.get_name() << endl;
         }
 
         for (auto pos : core_pos_for_event)
         {
-            search_and_set_pos(pos, entries.at(day));
+            search_and_set_pos(pos, entriesPerDay.at(day));
         }
 
         for (int i = 0; i < numRunGroups; ++i)
         {
             for (auto pos : core_pos_each_group)
             {
-                Racer temp = search_and_set_pos(pos, entries.at(day), i);
-                add_class_to_run_group(temp, entries.at(day), runGroups.at(i));
-                print_run_groups(runGroups.at(i));
+                search_and_set_pos(pos, entriesPerDay.at(day), i);
             }
+            add_classes_to_run_group(entriesPerDay.at(day), runGroups.at(i));
+        }
+
+        distribute_remaining_classes(entriesPerDay.at(day), runGroups);
+
+        cout << endl
+             << "----------    Day " << day + 1 << "    ----------" << endl;
+        for (int i = 0; i < numRunGroups; ++i)
+        {
+            cout << "--- Run Group " << i + 1 << ", " << runGroups.at(i).size() << " Entries ---" << endl;
+            print_run_groups(runGroups.at(i));
         }
     }
 
